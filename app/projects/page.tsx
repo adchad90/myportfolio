@@ -27,12 +27,11 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "JoBBit: an AI Interview prep website",
+      title: "JoBBit: an AI Interview prep website (Ongoing)",
       description: "A web application that helps users prepare for interviews using Vapi.",
       image: "/assets/proj4.png",
       techStack: ["Next.js", "TailwindCSS", "Firebase", "Vapi", "Vercel"],
-      github: "https://github.com/username/ai-image-generator",
-      website: "https://ai-image-generator.vercel.app"
+      ongoing: true
     },
     {
       title: "College Gate Management System",
@@ -111,22 +110,30 @@ export default function Projects() {
                 </div>
                 
                 <div className="flex gap-4 mt-6">
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-4 py-2 border border-green-500 hover:bg-green-500/20 transition-all duration-300 rounded flex items-center text-sm"
-                  >
-                    <span className="mr-2">&#60;/&#62;</span> GitHub Repo
-                  </a>
-                  <a 
-                    href={project.website} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-4 py-2 bg-green-500/20 border border-green-500 hover:bg-green-500/30 transition-all duration-300 rounded flex items-center text-sm"
-                  >
-                    <span className="mr-2">▶</span> Live Demo
-                  </a>
+                  {project.ongoing ? (
+                    <div className="px-4 py-2 border border-green-500 bg-green-500/10 rounded flex items-center text-sm">
+                      <span className="mr-2">⏳</span> Ongoing project - Will be completed soon
+                    </div>
+                  ) : (
+                    <>
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="px-4 py-2 border border-green-500 hover:bg-green-500/20 transition-all duration-300 rounded flex items-center text-sm"
+                      >
+                        <span className="mr-2">&#60;/&#62;</span> GitHub Repo
+                      </a>
+                      <a 
+                        href={project.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="px-4 py-2 bg-green-500/20 border border-green-500 hover:bg-green-500/30 transition-all duration-300 rounded flex items-center text-sm"
+                      >
+                        <span className="mr-2">▶</span> Live Demo
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

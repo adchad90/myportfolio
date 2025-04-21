@@ -5,13 +5,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import myPhoto from '../public/assets/me.jpeg'; // make sure this path is correct
 
+// Define types for the matrix rain
+type Char = {
+  value: string;
+  opacity: number;
+  highlighted: boolean;
+};
+
+type Column = {
+  id: number;
+  x: number;
+  chars: Char[];
+  speed: number;
+};
+
 export default function Home() {
   const [showPhoto, setShowPhoto] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showMatrix, setShowMatrix] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const [matrixColumns, setMatrixColumns] = useState<any[]>([]);
+  const [matrixColumns, setMatrixColumns] = useState<Column[]>([]);
   const fullText = 'hello world;\nI am Aditya Chavan';
 
   useEffect(() => {
@@ -51,7 +65,7 @@ export default function Home() {
       const columnWidth = 20;
       const numColumns = Math.floor(windowWidth / columnWidth);
 
-      const newColumns = [];
+      const newColumns: Column[] = [];
       for (let i = 0; i < numColumns; i++) {
         newColumns.push({
           id: i,
@@ -65,7 +79,7 @@ export default function Home() {
 
     const generateMatrixChars = () => {
       const length = 10 + Math.floor(Math.random() * 15);
-      const chars = [];
+      const chars: Char[] = [];
       for (let i = 0; i < length; i++) {
         const charType = Math.random();
         let char;
@@ -132,9 +146,7 @@ export default function Home() {
         {/* Image */}
         <Link href="/about">
           <div
-            className={`mb-8 transition-all duration-1000 ease-out ${
-              showPhoto ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-            }`}
+            className={`mb-8 transition-all duration-1000 ease-out ${showPhoto ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
           >
             <div className="rounded-full overflow-hidden border-2 border-green-400 shadow-lg shadow-green-500/50 h-32 w-32">
               <Image
@@ -151,9 +163,7 @@ export default function Home() {
 
         {/* Typing Text */}
         <div
-          className={`font-mono text-green-400 text-2xl md:text-4xl tracking-wider transition-opacity duration-500 ${
-            showText ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`font-mono text-green-400 text-2xl md:text-4xl tracking-wider transition-opacity duration-500 ${showText ? 'opacity-100' : 'opacity-0'}`}
           style={{
             textShadow: '0 0 5px #0f0, 0 0 10px #0f0',
             fontFamily: '"Share Tech Mono", "Courier New", monospace',
@@ -164,17 +174,15 @@ export default function Home() {
           {typedText}
           <span className="inline-block w-2 h-6 bg-green-400 ml-1 animate-pulse"></span>
         </div>
-        
+
         {/* Click Me Button */}
-        <div className={`mt-12 transition-all duration-1000 ease-out ${
-          showButton ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-        }`}>
+        <div className={`mt-12 transition-all duration-1000 ease-out ${showButton ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
           <Link href="/about">
-            <button 
+            <button
               className="bg-transparent border-2 border-green-400 hover:bg-green-500 hover:bg-opacity-20 text-green-400 font-bold py-3 px-8 rounded-lg text-xl transition-all duration-300 font-mono"
               style={{
                 textShadow: '0 0 5px #0f0',
-                boxShadow: '0 0 15px rgba(0, 255, 0, 0.5)'
+                boxShadow: '0 0 15px rgba(0, 255, 0, 0.5)',
               }}
             >
               Click Me
