@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
     const scrollToSkills = () => {
-        const skillsSection = document.getElementById('skills-section');
+        const skillsSection = document.getElementById('skills');
         skillsSection?.scrollIntoView({ behavior: 'smooth' });
       };
       

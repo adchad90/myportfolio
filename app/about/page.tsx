@@ -95,7 +95,7 @@ export default function Home() {
       </main>
 
       {/* Skills Section */}
-      <section ref={skillsRef} className="py-20 bg-black border-t border-green-500/30">
+      <section id="skills" ref={skillsRef} className="py-20 bg-black border-t border-green-500/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-green-400">
             <span className="text-green-500">&lt;</span> My Skills <span className="text-green-500">/&gt;</span>
