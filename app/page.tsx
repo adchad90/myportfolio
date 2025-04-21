@@ -9,6 +9,7 @@ export default function Home() {
   const [showPhoto, setShowPhoto] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showMatrix, setShowMatrix] = useState(false);
+  const [showButton, setShowButton] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [matrixColumns, setMatrixColumns] = useState<any[]>([]);
   const fullText = 'hello world;\nI am Aditya Chavan';
@@ -17,11 +18,13 @@ export default function Home() {
     const photoTimer = setTimeout(() => setShowPhoto(true), 2000);
     const textTimer = setTimeout(() => setShowText(true), 3500);
     const matrixTimer = setTimeout(() => setShowMatrix(true), 6900);
+    const buttonTimer = setTimeout(() => setShowButton(true), 8500); // Show button after all other animations
 
     return () => {
       clearTimeout(photoTimer);
       clearTimeout(textTimer);
       clearTimeout(matrixTimer);
+      clearTimeout(buttonTimer);
     };
   }, []);
 
@@ -160,6 +163,23 @@ export default function Home() {
         >
           {typedText}
           <span className="inline-block w-2 h-6 bg-green-400 ml-1 animate-pulse"></span>
+        </div>
+        
+        {/* Click Me Button */}
+        <div className={`mt-12 transition-all duration-1000 ease-out ${
+          showButton ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+        }`}>
+          <Link href="/about">
+            <button 
+              className="bg-transparent border-2 border-green-400 hover:bg-green-500 hover:bg-opacity-20 text-green-400 font-bold py-3 px-8 rounded-lg text-xl transition-all duration-300 font-mono"
+              style={{
+                textShadow: '0 0 5px #0f0',
+                boxShadow: '0 0 15px rgba(0, 255, 0, 0.5)'
+              }}
+            >
+              Click Me
+            </button>
+          </Link>
         </div>
       </div>
 
