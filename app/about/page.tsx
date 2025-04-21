@@ -11,12 +11,12 @@ export default function Home() {
   const [typedText, setTypedText] = useState('');
   const skillsRef = useRef<HTMLDivElement>(null);
 
+  // Define fullText here
+  const fullText = "Hello, I'm Aditya Chadha, a full-stack developer passionate about building innovative web applications.";
 
   useEffect(() => {
     const photoTimer = setTimeout(() => setShowPhoto(true), 1000);
     const textTimer = setTimeout(() => setShowText(true), 2000);
-
-  
 
     return () => {
       clearTimeout(photoTimer);
@@ -53,9 +53,7 @@ export default function Home() {
           {/* Image */}
           <Link href="/about">
             <div
-              className={`mb-8 transition-all duration-1000 ease-out ${
-                showPhoto ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-              }`}
+              className={`mb-8 transition-all duration-1000 ease-out ${showPhoto ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
             >
               <div className="rounded-full overflow-hidden border-2 border-green-400 shadow-lg shadow-green-500/50 h-32 w-32">
                 <Image
@@ -69,7 +67,6 @@ export default function Home() {
               </div>
             </div>
           </Link>
-
 
           {/* Description */}
           <div className="mt-8 max-w-2xl text-center text-green-300 opacity-80 transition-opacity duration-1000 delay-1000">
