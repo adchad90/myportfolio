@@ -11,7 +11,6 @@ export default function Home() {
   const [typedText, setTypedText] = useState('');
   const skillsRef = useRef<HTMLDivElement>(null);
 
-  const fullText = `Hi, I'm Aditya Chavan 👋\nFull-Stack Developer`;
 
   useEffect(() => {
     const photoTimer = setTimeout(() => setShowPhoto(true), 1000);
@@ -119,9 +118,9 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-4 text-green-300">Backend Development</h3>
               <ul className="space-y-2">
                 <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> Node.js & Express</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> Python & Django</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> Python, Flask</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> RESTful APIs</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> MongoDB & PostgreSQL</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> MongoDB, MySQL, PostgreSQL</li>
               </ul>
             </div>
 
@@ -132,7 +131,7 @@ export default function Home() {
                 <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> Git & GitHub</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> Docker</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> AWS & Vercel</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> Testing (Jest, Cypress)</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2">&gt;</span> Linux</li>
               </ul>
             </div>
           </div>
